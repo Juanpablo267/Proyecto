@@ -1,0 +1,7 @@
+{
+  "name": "AppResol",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
