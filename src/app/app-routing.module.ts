@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'ayuntamiento',
+    loadChildren: () => import('./ayuntamiento/ayuntamiento.module').then( m => m.AyuntamientoPageModule)
+  },
+  {
+    path: 'siapa',
+    loadChildren: () => import('./siapa/siapa.module').then( m => m.SiapaPageModule)
+  },
 ];
 
 @NgModule({

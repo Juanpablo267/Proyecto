@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
-
+  constructor(public http:HttpClient	) {}
+  ngOnInit() {  
+    this.http.post("https://gmail.googleapis.com/upload/gmail/v1/users/{userId}/messages/send",{}).subscribe(data=>{
+console.log(data)
+    })
+   }
 }
