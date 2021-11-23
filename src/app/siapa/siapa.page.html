@@ -1,14 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>siapa</ion-title>
+    <ion-title>Siapa</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button color="primary" href="home">Regresar</ion-button>
+ 
 
     
-      <ion-input placeholder="Problema"></ion-input>
+  <ion-input placeholder="Problema" [(ngModel)]="problema"></ion-input>
+
+  <ion-input placeholder="subir el archivo" type="file"  [(ngModel)]="imagen"></ion-input>
+
+  <ion-button color="primary" (click)="subir()" >Enviar</ion-button>
       
       
 </ion-content>

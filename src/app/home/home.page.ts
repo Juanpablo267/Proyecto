@@ -8,10 +8,9 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor(public http:HttpClient	) {}
+  constructor() {}
   ngOnInit() {  
-    this.http.post("https://gmail.googleapis.com/upload/gmail/v1/users/{userId}/messages/send",{}).subscribe(data=>{
-console.log(data)
-    })
+    
+    }
    }
-}
+
