@@ -25,7 +25,7 @@ export class AyuntamientoPage implements OnInit {
          formData.append('imagen', this.imagen);
          formData.append("problema", this.problema);
 
-      this.http.post("http://appresol.test/api/enviar", formData).subscribe(data=>{
+      this.http.post("http://3f0f-189-177-200-20.ngrok.io/api/enviar", formData).subscribe(data=>{
         console.log(data)
       });
     }
@@ -46,7 +46,9 @@ export class AyuntamientoPage implements OnInit {
       this.map = new google.maps.Map(this.mapRef.nativeElement,options);
     }
 
-    
+    recargar(){
+      window.location.reload();
+    }
 
  initMap(): void {
    new google.maps.Map(document.getElementById("map") as HTMLElement, {

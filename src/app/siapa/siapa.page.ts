@@ -23,11 +23,15 @@ export class SiapaPage implements OnInit {
        formData.append('imagen', this.imagen);
        formData.append("problema", this.problema);
 
-    this.http.post("http://appresol.test/api/enviar", formData).subscribe(data=>{
+    this.http.post("http://3f0f-189-177-200-20.ngrok.io/api/enviar", formData).subscribe(data=>{
       console.log(data)
     });
   }
   
+  recargar(){
+    window.location.reload();
+  }
+
   ngOnInit(){
     this.initMap();
   }
