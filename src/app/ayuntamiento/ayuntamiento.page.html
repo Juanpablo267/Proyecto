@@ -7,15 +7,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
   
 
-    
+    <div>
   <ion-input placeholder="Problema" [(ngModel)]="problema"></ion-input>
 
   <ion-input placeholder="subir el archivo" type="file" [(ngModel)]="imagen"></ion-input>
 
   <ion-button color="primary" (click)="subir()" >Enviar</ion-button>
+    </div>
       
-      
+    <ion-button routerLink="/ayuntamiento"> mostrar mapa</ion-button>
+    <div #map id="map"> </div>
+  
 </ion-content>
