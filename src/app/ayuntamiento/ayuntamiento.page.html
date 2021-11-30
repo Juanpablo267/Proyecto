@@ -8,17 +8,33 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
 
-    <div>
-  <ion-input placeholder="Problema" [(ngModel)]="problema"></ion-input>
-
-  <ion-input placeholder="subir el archivo" type="file" [(ngModel)]="imagen"></ion-input>
-
-  <ion-button color="primary" (click)="subir()" >Enviar</ion-button>
-    </div>
-      
-    <ion-button (click)="recargar()" > mostrar mapa</ion-button>
-    <div #map id="map"> </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-item>
+              <ion-label>Registro de problemas</ion-label>
+            </ion-item>
+          
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Introdusca el problema</ion-label>
+                <ion-input [(ngModel)]="problema"></ion-input>
+              </ion-item>
+              <ion-input placeholder="subir el archivo" type="file" [(ngModel)]="imagen"></ion-input>
+        
+              <ion-button color="primary" (click)="subir()" >Enviar</ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="recargar()" > mostrar mapa</ion-button>
+          <ion-card-content>
+            <div #map id="map"> </div>
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   
 </ion-content>

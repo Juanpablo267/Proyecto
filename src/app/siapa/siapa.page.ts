@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ViewChild, ElementRef } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 
 declare var google: any;
@@ -14,7 +15,7 @@ export class SiapaPage implements OnInit {
   @ViewChild('map', {read: ElementRef, static: false}) mapRef: ElementRef;
   map: any;
 
-  constructor(public http:HttpClient) { }
+  constructor(public http:HttpClient, public toastController:ToastController) { }
   public  problema:string;
   public  imagen:any;
 
@@ -25,6 +26,9 @@ export class SiapaPage implements OnInit {
 
     this.http.post("http://3f0f-189-177-200-20.ngrok.io/api/enviar", formData).subscribe(data=>{
       console.log(data)
+      this.presentToast("Gracias por su opinion")
+    },error=>{
+      this.presentToast("Ha ocurrido un error, vuelva a intentarlo mas tarde")
     });
   }
   
@@ -55,6 +59,14 @@ initMap(): void {
   center: { lat: 21.499916, lng: -104.887724 },
   zoom: 13,
 });
+}
+
+async presentToast(dato:string) {
+  const toast = await this.toastController.create({
+    message: dato,
+    duration: 2000
+  });
+  toast.present();
 }
 
 }

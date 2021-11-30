@@ -32,6 +32,7 @@ export class AyuntamientoPage implements OnInit {
 
     ngOnInit(){
       this.initMap();
+      this.initMap();
     }
     
     showMap(){
