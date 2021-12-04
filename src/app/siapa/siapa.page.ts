@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ViewChild, ElementRef } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { VariablesService } from '../servicios/variables.service';
 
 
 declare var google: any;
@@ -15,7 +16,7 @@ export class SiapaPage implements OnInit {
   @ViewChild('map', {read: ElementRef, static: false}) mapRef: ElementRef;
   map: any;
 
-  constructor(public http:HttpClient, public toastController:ToastController) { }
+  constructor(public http:HttpClient, public toastController:ToastController,public variable:VariablesService) { }
   public  problema:string;
   public  imagen:any;
 
@@ -24,7 +25,7 @@ export class SiapaPage implements OnInit {
        formData.append('imagen', this.imagen);
        formData.append("problema", this.problema);
 
-    this.http.post("http://3f0f-189-177-200-20.ngrok.io/api/enviar", formData).subscribe(data=>{
+    this.http.post(this.variable.url+"/api/enviar", formData).subscribe(data=>{
       console.log(data)
       this.presentToast("Gracias por su opinion")
     },error=>{

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Subscriber } from 'rxjs';
 import { ViewChild, ElementRef } from '@angular/core';
+import { VariablesService } from '../servicios/variables.service';
 
 declare var google: any;
 @Component({
@@ -14,7 +15,7 @@ export class AyuntamientoPage implements OnInit {
   @ViewChild('map', {read: ElementRef, static: false}) mapRef: ElementRef;
   map: any;
 
-  constructor(public http:HttpClient) {
+  constructor(public http:HttpClient, public variable:VariablesService) {
     
    }
     public  problema:string;
@@ -25,7 +26,7 @@ export class AyuntamientoPage implements OnInit {
          formData.append('imagen', this.imagen);
          formData.append("problema", this.problema);
 
-      this.http.post("http://3f0f-189-177-200-20.ngrok.io/api/enviar", formData).subscribe(data=>{
+      this.http.post(this.variable.url+"/api/enviar", formData).subscribe(data=>{
         console.log(data)
       });
     }

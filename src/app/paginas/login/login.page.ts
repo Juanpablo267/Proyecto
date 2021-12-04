@@ -27,7 +27,7 @@ export class LoginPage implements OnInit {
   iniciar() {
     google.accounts.id.disableAutoSelect();
     google.accounts.id.initialize({
-      client_id: "695856088318-0uhrmdmjhcgm0lo4dno63u1n9tpb7m1b.apps.googleusercontent.com",
+      client_id: "182138132492-dmu49mksuv6957a68mg2lu0kt40k66kr.apps.googleusercontent.com",
       callback: this.handleCredentialResponse
       
     });
